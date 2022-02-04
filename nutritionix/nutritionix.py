@@ -1,7 +1,7 @@
 import logging
 import json
 import requests
-import urlparse
+import urllib.parse as urlparse
 
 API_VERSION = "v2"
 BASE_URL = "https://apibeta.nutritionix.com/%s/" % (API_VERSION)
