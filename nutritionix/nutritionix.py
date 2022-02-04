@@ -8,7 +8,7 @@ else:
     import urlparse
 
 API_VERSION = "v2"
-BASE_URL = "https://apibeta.nutritionix.com/%s/" % (API_VERSION)
+BASE_URL = "https://trackapi.nutritionix.com/%s/" % (API_VERSION)
 
 
 class NutritionixClient:
@@ -118,7 +118,7 @@ class NutritionixClient:
         if kwargs:
             params = kwargs
 
-        endpoint = urlparse.urljoin(BASE_URL, 'search')
+        endpoint = urlparse.urljoin(BASE_URL, 'search/instant')
 
         return self.execute(endpoint, params=params)
 
@@ -130,9 +130,9 @@ class NutritionixClient:
         if kwargs:
             params = kwargs
 
-        endpoint = urlparse.urljoin(BASE_URL, 'item/%s' % (params.get('id')))
+        endpoint = urlparse.urljoin(BASE_URL, 'search/item')
 
-        return self.execute(endpoint)
+        return self.execute(endpoint, params=params)
 
     def brand(self, **kwargs):
         """Look up a specific brand by ID. """
